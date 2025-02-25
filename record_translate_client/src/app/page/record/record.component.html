@@ -1,0 +1,58 @@
+<div *ngIf="isLoading">
+  <p>デバイス情報を取得中...</p>
+</div>
+<div *ngIf="!isLoading">
+  <select *ngIf="audioDevices.length > 0" [(ngModel)]="selectedDeviceId">
+      <option *ngFor="let device of audioDevices" [value]="device.deviceId">
+          {{ device.label || 'Unknown Device' }}
+      </option>
+  </select>
+
+  <button (click)="startRecording()" [disabled]="!selectedDeviceId">録音開始</button>
+  <button (click)="stopRecording()" [disabled]="!mediaRecorder">録音停止</button>
+</div>
+
+<div class="transcription-translation-container">
+  <div class="transcription-translation">
+      <div class="transcription">
+          <h3>文字起こし</h3>
+          <p>{{ transcription || 'ここに文字起こしの結果が表示されます。' }}</p> <!-- 空の場合のメッセージを表示 -->
+      </div>
+      <div class="translation">
+          <h3>翻訳</h3>
+          <p>{{ translation || 'ここに翻訳の結果が表示されます。' }}</p> <!-- 空の場合のメッセージを表示 -->
+      </div>
+  </div>
+  <div class="divider"></div> <!-- 区切り線 -->
+  <div class="site-description">
+    <h3>サイトの使い方</h3>
+    <p>
+        このサイトでは、オーディオデバイスを使用して音声を録音し、その音声を文字起こしし、さらに翻訳することができます。<br/>
+        まず、利用可能なオーディオデバイスを選択し、録音を開始してください。録音を停止すると、録音された音声の文字起こしと翻訳結果が表示されます。
+    </p>
+    
+    <h4>ブラウザでマイクを有効にする方法</h4>
+    
+    <h5>Google Chromeの場合</h5>
+    <p>Google Chromeでマイクを有効にするには、以下の手順を行ってください:</p>
+    <ul>
+        <li>ブラウザのアドレスバーの「i」マークまたは鍵アイコンをクリックします。</li>
+        <li>「サイトの設定」を選択します。</li>
+        <li>「マイク」の項目を「許可」に設定します。</li>
+        <li>ページをリロードして、マイクの使用を再試行してください。</li>
+    </ul>
+    
+    <h5>Microsoft Edgeの場合</h5>
+    <p>Microsoft Edgeでマイクを有効にするには、以下の手順を行ってください:</p>
+    <ul>
+        <li>ブラウザのアドレスバーの「i」マークまたは鍵アイコンをクリックします。</li>
+        <li>「このサイトに対する権限」を選択します。</li>
+        <li>「マイク」の項目を「許可」に設定します。</li>
+        <li>ページをリロードして、マイクの使用を再試行してください。</li>
+    </ul>
+
+    <p>
+        これでもマイクが動作しない場合は、ブラウザの設定を確認し、デバイス自体が正しく接続されているか確認してください。
+    </p>
+</div>
+</div>

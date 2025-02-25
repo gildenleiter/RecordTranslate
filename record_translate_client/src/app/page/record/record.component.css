@@ -1,0 +1,54 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.transcription-translation-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.transcription-translation {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.transcription,
+.translation {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 150px; /* 最低限の高さを指定して、空でも枠が表示されるようにする */
+}
+
+.site-description {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.additional-info {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
+    width: 100%;
+}
